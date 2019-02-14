@@ -1,4 +1,4 @@
-import { Store } from "express-session";
+import { MemoryStore, Store } from "express-session";
 import { Express } from "express";
 import * as next from "next";
 import { LuscaOptions } from "lusca";
@@ -9,11 +9,11 @@ export  interface IOptions {
     csrf?: boolean | LuscaOptions;
     pathPrefix?: string;
     expressApp?: Express.Application;
-    expressSession: any;
+    expressSession?: any;
     sessionSecret: string;
-    sessionStore: Store;
-    sessionMaxAge: number;
-    sessionRevalidateAge: number;
+    sessionStore?: MemoryStore | Store;
+    sessionMaxAge?: number;
+    sessionRevalidateAge?: number;
     sessionResave?: boolean;
     sessionRolling?: boolean;
     sessionSaveUninitialized?: boolean;
